@@ -5115,7 +5115,7 @@ if [ "$DOCDDB" = "y" ]; then
 	if checkstatus cddb-choice > /dev/null; then
 		:
 	else
-	        NUM_CDDB_MATCHES=0
+		NUM_CDDB_MATCHES=0
 		if [ "$CDDBLOCALSTATUS" = "notfound" ] ; then
 			idx=0
 			for CDDBMETHCHOICE in $(echo "$CDDBMETHOD"  | tr -d '	 ' | tr , ' ')
