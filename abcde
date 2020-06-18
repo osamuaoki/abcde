@@ -3998,7 +3998,9 @@ CONVERTOPTS=
 DISPLAYCMDOPTS="-resize 512x512 -title abcde_album_art"
 
 # Defaults for album art downloads
-ALBUMARTFILE="cover.jpg"
+ALBUMARTFILEBASE="cover"
+ALBUMARTFILEEXT=".jpg"
+ALBUMARTFILE="${ALBUMARTFILEBASE}${ALBUMARTFILEEXT}"
 ALBUMARTTYPE="JPEG"
 ALBUMARTALWAYSCONVERT="n"
 
@@ -4192,6 +4194,7 @@ while getopts 1a:bBc:C:d:DefgGhj:klLmMnNo:pPQ:r:s:S:t:T:UvVxX:w:W:z opt ; do
 			 STARTTRACKNUMBERTAG="y"
 			 COMMENT="CD${OPTARG}"
 			 DISCNUMBER="${OPTARG}"
+			 ALBUMARTFILE="${ALBUMARTFILEBASE}${DISCNUMBER}${ALBUMARTFILEEXT}"
 		   else
 			 log error "argument of -W must be integer"
 			 exit 1
