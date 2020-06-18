@@ -5245,6 +5245,11 @@ if [ ! "$ONETRACK" = "y" ]; then
 	fi
 fi
 
+if [ "$INTERACTIVE" != "y" ] && [ "$(checkstatus cddb-choice)" = "0" ]; then
+	# Skip Album Art if cddb record is missing under non-interactive mode
+	GETALBUMART="n"
+fi
+
 if [ "$GETALBUMART" = "y" ]; then
 	do_getalbumart
 fi
