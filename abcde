@@ -2328,7 +2328,12 @@ do_discid ()
 	fi
 	if [ X"$DOCUE" = "Xy" ] && [ X"$WEHAVEACD" = "Xy" ]; then
 		if checkstatus cuefile > /dev/null 2>&1 ; then :; else
-			CUEFILE=cue-$(echo "$CDDBTRACKINFO" | cut -f1 -d' ').txt
+			if [ -z "$DISCNUMBER" ]; then
+				CUEFILESTEM="cue"
+			else
+				CUEFILESTEM="cue-$DISCNUMBER"
+			fi
+			CUEFILE=$CUEFILESTEM-$(echo "$CDDBTRACKINFO" | cut -f1 -d' ').txt
 			vecho "Creating cue file..."
 			case "$CDROMREADERSYNTAX" in
 				flac)
