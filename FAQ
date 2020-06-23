@@ -151,6 +151,9 @@ A. Set abcde to rip the first CD and give it the option "-t 101". Use a generic
 Q. I have a live concert. I want to encode it in a single file. How do i do it?
 A. Use "-1" and it will be encoded in a single file. Use "cue" as an action to
    make a CUE sheet file where the information about the tracks is stored.
+   If this is a CD in a CD set, you can use -I "extra_album_name" to append
+   "extra_album_name" text to the album name before munge to provide
+   distinguishable Album name and to avoid overwriting data.
 
 Q. Can I use abcde to take a backup of my CD collection?
 A. Yes. Use "abcde -1 -o flac -a default,cue" and it will create a single-track
