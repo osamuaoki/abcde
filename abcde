@@ -5171,6 +5171,9 @@ if [ "$DOCDDB" = "y" ]; then
 				echo cddb-read-0-complete >> "${ABCDETEMPDIR}/status"
 				echo cddb-choice=0 >> "${ABCDETEMPDIR}/status"
 				echo 503 > "${ABCDETEMPDIR}/cddbquery"
+				# Append CDDBDISCID to DALBUMTAIL to avoid overwriting
+				# the existing "Unknown Album" data (convenience hack)
+				DALBUMTAIL="${DALBUMTAIL}-${CDDBDISCID}"
 			else
 				# We have matches; create the cddbchoices and cddbquery
 				# files from all the inputs we have
